@@ -12,13 +12,9 @@ registerServiceWorker();
 function create_joystick(){
 	var options = {
 		zone: document.getElementById('zone_joystick'),
-		mode: 'static',
-		position: {
-		  left: '50%',
-		  top: '50%'
-		},
-		color: 'red'
-	}
+		multitouch: true,
+		color: 'blue'
+	};
 	return nipplejs.create(options);
 }
 
@@ -40,11 +36,10 @@ function bindNipple() {
     });
   }).on('start end move dir:up plain:up dir:left plain:left dir:down plain:down dir:right plain:right', function(evt,data){
   	if (data.hasOwnProperty("direction")){
-	   	console.log("Data is:");
-	  	console.log(data);
-	  	console.log("Event is");
-	  	console.log(evt);
   		joystick_data = data;
+  	}
+  	else {
+  		joystick_data = null;
   	}
   });
 }
@@ -79,11 +74,8 @@ var els = {
 };
 
 // send data to server
-var i = 0;
 setInterval(function(){
-	if (joystick_data != null){
-		console.log("#" + i + " Send coords");
-		i += 1;
+	if (joystick_data !== null){
 		delete joystick_data.instance;
 		fetch('http://127.0.0.1:8000/control/', {
 		  method: 'post',
@@ -94,12 +86,9 @@ setInterval(function(){
 		  },
 		  body: JSON.stringify(joystick_data)
 		}).then(function(response){
-			console.log("Success");
 			console.log(response);
-			console.log(response.headers);
 		}).catch(err => {
    			console.log(err);
-   			console.log(err.headers);
 		});
 
 	}

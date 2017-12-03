@@ -21,12 +21,21 @@ To start Django (not for the first time)
 - `make start` or `python manage.py runserver`
 
 ### Setup Frontend (react)
-Go to the `frontend` directory in the project and enter ```npm start```
+Go to the `frontend` directory in the project
+
+!!! TODO check frontend setup when clone project from the git
+
+```npm install```
+
+```npm start```
 
 
 ## How it works
 Fontend (React app) sets a joystick. When you press joystick you get data, 
-this data sends to the server every 100ms. Backend server receives the data 
+this data sends to the server every 100ms. If we finish to communicate with 
+the joystick we don't send data.
+ 
+Backend server receives the data 
 and saves it to the db. Mainly we want to save direction data which has `x`,
  `y` and `angle` cases. `Direction` models has datetime field(when data was 
  sent), full_data(save whole data, could be useful for future) and x,y,ange 

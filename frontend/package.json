@@ -1,6 +1,6 @@
 {
-  "name": "my-romote-react",
-  "version": "0.1.0",
+  "name": "frontend",
+  "version": "0.1.1",
   "private": true,
   "dependencies": {
     "nipplejs": "^0.6.7",
