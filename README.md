@@ -23,11 +23,11 @@ To start Django (not for the first time)
 ### Setup Frontend (react)
 Go to the `frontend` directory in the project
 
-!!! TODO check frontend setup when clone project from the git
-
-```npm install```
-
-```npm start```
+For the first start:
+  - `make init`
+  
+Start React (not the first time)
+  - `make start`
 
 
 ## How it works
