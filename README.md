@@ -1,4 +1,4 @@
-# basic_remote_control
+# Basic remote control
 Create a basic client server system for remote controlling the robot with a virtual joystick. Server Django application with one model - direction. The server will also have a post rest API. Client React.js based web app with nipple.js (https://github.com/yoannmoinet/nipplejs). The application will send every 100 ms post to the server with the direction of the nipple.
 
 ## Setup project
@@ -26,7 +26,7 @@ Go to the `frontend` directory in the project
 For the first start:
   - `make init`
   
-Start React (not the first time)
+Start React (not for the first time)
   - `make start`
 
 
